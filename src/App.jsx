@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useDebounce } from "./hooks/useDebounce";
 import { MovieCard } from "./MovieCard";
 import { MOVIES } from "./movies.data";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  const movies = MOVIES.filter(movie => movie.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const debouncedSearch = useDebounce(searchTerm, 800);
+
+    console.log(debouncedSearch);
+
+  const movies = MOVIES.filter(movie => 
+    movie.name.toLowerCase().includes(debouncedSearch.toLowerCase()))
 
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-5">
