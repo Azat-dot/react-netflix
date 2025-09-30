@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function FavoriteButton() {
     const [isFavorite, setIsFavorite] = useState(false);
+
+
 
     return (
     <button onClick={() => setIsFavorite(!isFavorite)}>
