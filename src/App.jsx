@@ -35,7 +35,7 @@ function App() {
 
                   <button
                     onClick={toggleTheme}
-                    className="text-sp px-3 py-1 rounded border border-white/20
+                    className="text-sp px-3 py-1 rounded border border-white/10
                     dark:border-white/10 hover:bg-white hover:text-black
                     dark:hover:bg-white/10 transition w-20"
                   >
@@ -50,6 +50,7 @@ function App() {
                       key={movie.name}
                       image= {movie.image} 
                       rating= {movie.rating}
+                      youtubeTrailerID={movie.youtubeTrailerID}
                     />
                 )) :(
                   <p>Movies not found</p>
