@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
-import { useDebounce } from "./hooks/useDebounce";
-import { useTheme } from "./hooks/useTheme";
-import  MovieCard  from "./MovieCard";
+import { useDebounce } from "../../hooks/useDebounce";
+import { useTheme } from "../../hooks/useTheme";
+import   MovieCard  from "./MovieCard";
 import { MOVIES } from "./movies.data";
 
 function App() {

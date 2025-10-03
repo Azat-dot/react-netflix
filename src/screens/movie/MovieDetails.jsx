@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { MOVIES } from './movies.data'
+import { MOVIES } from '../home/movies.data'
 import { useMemo } from 'react'
 
 export function MovieDetails() {

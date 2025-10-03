@@ -7,7 +7,7 @@ export function Layout() {
     const isHomePage = useMemo(() => pathname === '/', [pathname]);
 
   return (
-    <div classname='min-h-screen w-full bg-white dark:bg-black 
+    <div className='min-h-screen w-full bg-white dark:bg-black 
     text-black dark:text-white px-6 py-5' >
         {!isHomePage && (
             <header className='mb-10 flex items-center justify-between'>
