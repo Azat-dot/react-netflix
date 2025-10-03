@@ -48,7 +48,6 @@ function MovieCard({ image, rating, youtubeTrailerID}) {
         </button>
         <Link
         to={`/movie/${youtubeTrailerID}`}
-        className='btn'
         >
           🔗
         </Link>
