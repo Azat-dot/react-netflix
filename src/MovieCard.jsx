@@ -1,9 +1,14 @@
-import { FavoriteButton } from "./FavoriteButton";
+import FavoriteButton  from "./FavoriteButton";
 import { Modal } from "./components/ui/Modal";
-import { useState } from "react";
+import { memo, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 
-export function MovieCard({ image, rating, youtubeTrailerID}) {
+function MovieCard({ image, rating, youtubeTrailerID}) {
   const [isOpenTrailer, setIsOpenTrailer] = useState(false);
+
+  const openTrailer = useCallback(() => {
+      setIsOpenTrailer(true)
+    },[]);
 
   return (
     <div
@@ -13,9 +18,9 @@ export function MovieCard({ image, rating, youtubeTrailerID}) {
     >
       {isOpenTrailer && (
         <Modal
-              onClose={() => {
+            onClose={() => {
                 setIsOpenTrailer(false);
-              }}
+          }}
             >
               <iframe
                 width="560"
@@ -25,7 +30,7 @@ export function MovieCard({ image, rating, youtubeTrailerID}) {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
-                allowFullscreen
+                allowFullScreen
             />
             </Modal>
             )
@@ -38,12 +43,15 @@ export function MovieCard({ image, rating, youtubeTrailerID}) {
       <div className="absolute top-2 right-2 z-10">
         <FavoriteButton />
         <button
-            className="btn"
-            onClick={() => {
-                setIsOpenTrailer(true)
-            }}>
+            onClick={openTrailer}>
             🎥
         </button>
+        <Link
+        to={`/movie/${youtubeTrailerID}`}
+        className='btn'
+        >
+          🔗
+        </Link>
       </div>
 
       <div
@@ -56,3 +64,5 @@ export function MovieCard({ image, rating, youtubeTrailerID}) {
     </div>
   );
 }
+
+export default memo(MovieCard)
